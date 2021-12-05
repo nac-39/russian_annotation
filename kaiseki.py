@@ -131,7 +131,7 @@ class RUSwords:
         return self.morph.normal_forms(self.word)[0]
 
 def gen_ruword(ru):
-    ru = ru.replace("."," .").replace(","," ,").replace(":"," : ").replace("?"," ?").replace("!"," !").split(" ")
+    ru = ru.replace("."," . ").replace(","," , ").replace(":"," : ").replace("?"," ? ").replace("!"," ! ").replace("\n","\n ").split(" ")
 
     for i in range(len(ru)):
         word = ru[i]
@@ -147,7 +147,7 @@ def lower_calse(word):
 
 if __name__=="__main__":
     f = open("ru_txt.txt","r")
-    ru = f.read().replace("."," .").replace(","," ,").replace(":"," : ").split(" ")
+    ru = f.read().replace("."," . ").replace(","," , ").replace(":"," : ").split(" ")
     f.close()
 
     for word in ru:
