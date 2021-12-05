@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<article class="message">
+    <div class="message-header">
+      <p>注釈</p>
+    </div>
+    <div class="message-body">
+        {% for w in russian %}
+            <span class="rubyposition_under" ondblclick="buttonDoubleclick({{w|safe}})">
+
+            <ruby>{{w[0]}}
+                <rt>
+                    <span class="case">{{w[1][0]}}</span>
+                    <span class="POS">{{w[1][1]}}</span>
+                    <span class="gender">{{w[1][2]}}</span>
+                    {% if w[0]|lower!=w[1][3] %}
+                    <span class="normal_form">{{w[1][3]}}</span>
+                    {% endif %}
+                </rt>
+            </ruby>
+            </span>
+        {% endfor %}
+        
+    </div>
+</article>
+<div class="notification is-warning is-light">
+    単語をダブルクリックすると直接<a href="http://cblle.tufs.ac.jp/dic/ru/">http://cblle.tufs.ac.jp/dic/ru/</a>の検索結果に飛びます．
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>ロシア語注釈</title>
+</head>
+<body>
+    <h1 class="title">ロシア語注釈</h1>
+    <div class="columns">
+        <div class="column is-half">
+            <form action="/russian"method="post" enctype="multipart/form-data" class="block">
+                <textarea name="input_russian" id="input_russian" class="textarea block" placeholder="Введите русский"></textarea>
+                <div class="block">
+                    <button type="submit"class="button is-info is-12">送信</button>
+                </div>
+            </form>
+
+            <article class="message block">
+                <div class="message-header">
+                  <p>原文</p>
+                </div>
+                <div class="message-body">
+                    {% for w in russian %}
+                    <span class="rubyposition_under">
+                        {{w[0]}}
+                    </span>
+                    {% endfor %}
+                </div>
+            </article>
+            </div>
+            <div class = "russian_checks column is-half">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = () =>{
+            document.addEventListener("dblclick", function(e){ e.preventDefault();}, { passive: false });
+        }
+        function buttonDoubleclick(word){
+            console.log(word);
+            ru = encodeURI(word[1]);
+            url = `http://cblle.tufs.ac.jp/dic/ru/v_search_list.php?serchTxt=${ru}&searchWayID=3&serch_button=%E3%80%80%E6%A4%9C%E7%B4%A2%E3%80%80`
+            let newwin = window.open(url);
+        }
+    </script>
+</body>
+</html>
