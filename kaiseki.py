@@ -1,5 +1,6 @@
 import pymorphy2
 
+
 class Dictionaries():
     def __init__(self) -> None:
         self.case = {
