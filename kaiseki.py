@@ -1,5 +1,5 @@
 import pymorphy2
-
+import re
 
 class Dictionaries():
     def __init__(self) -> None:
@@ -132,14 +132,13 @@ class RUSwords:
         return self.morph.normal_forms(self.word)[0]
 
 def gen_ruword(ru):
-    ru = ru.replace("."," . ").replace(","," , ").replace(":"," : ").replace("?"," ? ").replace("!"," ! ").replace("\n","\n ").split(" ")
-
-    for i in range(len(ru)):
-        word = ru[i]
+    ru_list = re.split('(?<=\W)',ru,flags=re.UNICODE)
+    ru_list = [w.replace(" ","") for w in ru_list]
+    for i in range(len(ru_list)):
+        word = ru_list[i]
         r = RUSwords(word)
-        ru[i] = [ru[i],r.output()]
-
-    return ru
+        ru_list[i] = [ru_list[i],r.output()]
+    return ru_list
 
 def lower_calse(word):
     new_w = pymorphy2.shapes.restore_capitalization(word,"дододо")
