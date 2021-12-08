@@ -10,7 +10,6 @@ def hello():
 def generate():
     ru = request.form['input_russian']
     new_ru = kaiseki.gen_ruword(ru)
-    print(new_ru)
     return render_template('res.html',russian=new_ru)
 
 
