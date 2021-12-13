@@ -6,13 +6,11 @@ app = Flask(__name__)
 def hello():
     return render_template('layout.html')
 
-@app.route('/russian',methods=["POST"])
+@app.route('/',methods=["POST"])
 def generate():
     ru = request.form['input_russian']
     new_ru = kaiseki.gen_ruword(ru)
     return render_template('res.html',russian=new_ru)
 
-
-## おまじない
 if __name__ == "__main__":
     app.run(debug=True)

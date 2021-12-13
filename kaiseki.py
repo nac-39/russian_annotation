@@ -132,7 +132,9 @@ class RUSwords:
         return self.morph.normal_forms(self.word)[0]
 
 def gen_ruword(ru):
-    ru_list = re.split('(?<=\W)',ru,flags=re.UNICODE)
+    ru = re.sub(r'(\W)', r' \1 ',ru)
+    ru = re.sub(r"(\s)+"," ",ru)
+    ru_list = re.split(" ",ru)
     ru_list = [w.replace(" ","") for w in ru_list]
     for i in range(len(ru_list)):
         word = ru_list[i]

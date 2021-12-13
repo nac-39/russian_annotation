@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
-body{
+.main-russian{
   padding: 10px;
 }
 .russian_checks{

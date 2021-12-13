@@ -8,43 +8,53 @@
     <title>ロシア語注釈</title>
 </head>
 <body>
-    <h1 class="title">ロシア語注釈</h1>
-    <div class="columns">
-        <div class="column is-half">
-            <form action="/russian"method="post" enctype="multipart/form-data" class="block">
-                <textarea name="input_russian" id="input_russian" class="textarea block" placeholder="Введите русский"></textarea>
-                <div class="block">
-                    <button type="submit"class="button is-info is-12">送信</button>
+    <div class="main-russian">
+        <h1 class="title">ロシア語注釈</h1>
+        <div class="columns">
+            <div class="column is-half">
+                <form action="/"method="post" enctype="multipart/form-data" class="block">
+                    <textarea name="input_russian" id="input_russian" class="textarea block" placeholder="Введите русский"></textarea>
+                    <div class="block">
+                        <button type="submit"class="button is-info is-12">送信</button>
+                    </div>
+                </form>
+    
+                <article class="message block">
+                    <div class="message-header">
+                      <p>原文</p>
+                    </div>
+                    <div class="message-body">
+                        {% for w in russian %}
+                        <span class="rubyposition_under">
+                            {{w[0]}}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </article>
                 </div>
-            </form>
-
-            <article class="message block">
-                <div class="message-header">
-                  <p>原文</p>
+                <div class = "russian_checks column is-half">
+                    {% block content %}
+                    {% endblock %}
                 </div>
-                <div class="message-body">
-                    {% for w in russian %}
-                    <span class="rubyposition_under">
-                        {{w[0]}}
-                    </span>
-                    {% endfor %}
-                </div>
-            </article>
             </div>
-            <div class = "russian_checks column is-half">
-                {% block content %}
-                {% endblock %}
-            </div>
+            <button type="button"class="button is-dark is-12" id="btn">ご意見をお寄せください🥺</button>
         </div>
-        <div class="column is-half">
-            <article class="message block">
-                <div class="message-header">
-                  <p>ご意見をお寄せください</p>
-                </div>
-                <div class="message-body">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScczyYsHlHOscwnpv5HbrlTlrY1gIViLx6kLncF4hygtbEH9w/viewform?embedded=true" width="100%" height="460" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-                </div>
-            </article>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Googleフォーム</p>
+            <button class="delete" aria-label="close" id="close-btn"></button>
+          </header>
+          <section class="modal-card-body">
+            <div class="message-body">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScczyYsHlHOscwnpv5HbrlTlrY1gIViLx6kLncF4hygtbEH9w/viewform?embedded=true" width="100%" height="460" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+            </div>
+          </section>
+          <footer class="modal-card-foot">
+
+          </footer>
         </div>
     </div>
     <footer class="footer">
@@ -65,6 +75,16 @@
             url = `http://cblle.tufs.ac.jp/dic/ru/v_search_list.php?serchTxt=${ru}&searchWayID=3&serch_button=%E3%80%80%E6%A4%9C%E7%B4%A2%E3%80%80`
             let newwin = window.open(url);
         }
+        var btn = document.getElementById('btn');
+        var close_btn = document.getElementById('close-btn');
+        var modal = document.getElementById('modal');
+
+        btn.addEventListener('click', function() {
+            modal.style.display = 'block';
+        })
+        close_btn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        })
     </script>
 </body>
 </html>
