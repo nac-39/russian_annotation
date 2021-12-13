@@ -45,7 +45,6 @@
         <div class="modal-card">
           <header class="modal-card-head">
             <p class="modal-card-title">Googleフォーム</p>
-            <button class="delete" aria-label="close" id="close-btn"></button>
           </header>
           <section class="modal-card-body">
             <div class="message-body">
@@ -53,7 +52,8 @@
             </div>
           </section>
           <footer class="modal-card-foot">
-
+            <button class="button" id="close-btn">閉じる</button>
+            <button class="button is-warning is-light" id="hatena-btn">???</button>
           </footer>
         </div>
     </div>
@@ -77,6 +77,7 @@
         }
         var btn = document.getElementById('btn');
         var close_btn = document.getElementById('close-btn');
+        var hatena_btn = document.getElementById('hatena-btn');
         var modal = document.getElementById('modal');
 
         btn.addEventListener('click', function() {
@@ -84,6 +85,24 @@
         })
         close_btn.addEventListener('click', function() {
             modal.style.display = 'none';
+        })
+        hatena_btn.addEventListener('click', function() {
+            words = [
+                "Как дела?\n元気ですか？",
+                "Здравствуйте!\nこんにちは！",
+                "Пока\nじゃあね",
+                "Очень приятно\n初めまして",
+                "Урааааааааааа!\nｳﾗｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧｧ",
+                "Спасибо!\nありがとう！",
+                "Хорошо\n良い！",
+                "Горе не море, выпьешь до дна.\n悲しみは海ではないから、すっかり飲み干してしまうことができる。",
+                "Собака лает — ветер носит, а караван идет.\n犬が吠え、風が伝える。それでもキャラバンは進む。",
+                "Язык до Киева доведет.\n舌がキエフに連れて行く。",
+                "Прошла любовь, завяли помидоры.\n愛は過ぎ去り、トマトもしなびてしまった。",
+                "Работа не волк, в лес не убежит.\n仕事は熊ではないから森には逃げない",
+                "Правда глаза колет.\n真実は目に痛い"
+            ]
+            alert(words[Math.floor(Math.random() * words.length)])
         })
     </script>
 </body>
