@@ -18,6 +18,6 @@
 直した方がいいところ等あれば気軽に言ってください!!
 
 
-Copyright (c) 2022 nac-39
-Released under the MIT license
+Copyright (c) 2022 nac-39  
+Released under the MIT license  
 https://opensource.org/licenses/mit-license.php
