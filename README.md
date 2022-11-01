@@ -1,5 +1,9 @@
 # russian_annotation
 
+URL:  
+- https://russianannotation.herokuapp.com  
+- 上記が使えない時: https://russian-annotation.onrender.com
+
 ### 使い方
 1. ```$ git clone git@github.com:nac-39/russian_annotation.git```(SSHの場合)
 1. ```$ pip install -r requirements.txt```
